@@ -1,0 +1,258 @@
+/* COMMON */
+.body__container {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400; /* nomal */
+  color: #333;
+}
+a {
+  text-decoration: none;
+}
+/* FLOAT AND CLEARFIX */
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+.float--left {
+  float: left;
+}
+.float--right {
+  float: right;
+}
+/* SECTION & INNER */
+.section {
+  position: relative; /* 1차적으로 걸리게 해주는 역할 */
+}
+.section .inner {
+  max-width: 980px;
+  margin: 0 auto; /* 가로값이 정의되어야 가운데 정렬 */
+  box-sizing: border-box; /* 보더 or 패딩 조절 */
+  position: relative; 
+}
+/* SUMMARY */
+.summary__title {
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1.25;
+  margin-bottom: 18px;
+}
+.summary__description {
+  font-size: 26px;
+  font-weight: 300;
+  color: #767676;
+  line-height: 1.5;
+}
+
+/* BTN */
+.btn  {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  background: #eee linear-gradient(to bottom, #fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  color: #333;
+}
+.btn:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.07);
+}
+.btn.btn--primary {
+  border: 1px solid #65b836;
+  color: #fff;
+  background: #55a532 linear-gradient(#91dd70, #55ae2e);
+}
+
+/* INPUT TEXT */
+.input--text {
+  height: 34px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.075);/* inset 안쪽의 그림자 */
+  font-size: 16px;
+}
+.input--text:focus {
+  border-color: #51a7e8;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.075), 
+              0 0 5px rgba(81,167,232,0.5);/* 두가지를 동시에 사용할 때 CSS 정리해주기 */
+}
+/* Vendor Prefix(브라우저 업체별 접두사) */
+/* placehold 색상조절 */
+.input--text::-webkit-input-placeholder { color: #cacaca; }
+.input--text::-ms-input-placeholder { color: #cacaca; }
+.input--text::-moz-input-placeholder { color: #cacaca; }
+/* .input--text::-o-input-placeholder { color: #cacaca; } 지원X */
+
+
+/* HEADER */
+header {
+  border-bottom: 1px solid rgba(0,0,0,.75);
+  box-shadow:  0 0 5px rgba(0,0,0,.75);
+  background: #fff;
+}
+header .inner {
+  height: 78px;
+}
+header .menu-group {
+  display: flex;
+  align-items: center; /* 수직가운데정렬 */
+  height: 100%;/* 부모인 inner의 높이값을 100% 사용 */
+}
+header .logo {
+  margin-right: 10px;
+}
+header .logo a {
+  display: block;
+  background: url("../img/logo.svg");
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px; /* alt 대체텍스트 역할 9999 명시적인 이유 */
+}
+header .logo a:hover {
+  background: url("../img/logo_on.svg");
+}
+header .main-menu {
+  display: flex;
+}
+header .main-menu li a {
+  display: block;
+  padding: 10px;/* 클릭 영역을 확장 */
+  color: #3c4146;
+}
+header .main-menu li a:hover {
+  color: #4078c0;
+}
+header .sign-group {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+header .btn-group {
+  order: 2;/* 작은숫자부터 배열 */
+  display: flex;/* inline-flex는 인라인요소라 줄바꿈을 띄어쓰기로 적용되니 flex를 사용하여 block 요소로 변경 */
+}
+header .btn-group .sign-in {
+  margin-right: 4px;
+}
+#search-form {
+  order: 1;
+  margin-right: 12px;
+}
+#search {
+  width: 160px;
+  font-size: 14px;
+}
+#search + [type="submit"] /* +는 다음형제요소 / [] 속성선택자 */ {
+  display: none;
+}
+header .sub-menu {
+  /* order: 0; 기본값 */
+  display: flex;
+  margin-right: 10px;
+}
+header .sub-menu li a {
+  display: block;
+  padding: 8px;
+  font-size: 13px;
+  color: #3c4146;
+}
+header .sub-menu li a:hover {
+  color: #4078c0;
+}
+#toggle-btn {
+  display: none;
+  background: url("../img/toggle-btn.svg");
+  width: 18px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  cursor: pointer;
+  text-indent: -9999px;
+}
+
+
+/* VISUAL */
+.section--visual {
+  background-image: url("../img/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: cover;
+}
+.section--visual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; 
+  /* 모든방향에 0 부모요소 기준으로 앱솔루트 사용했을 시 전체영역 */
+  background: rgba(0,0,0,.3);
+}
+.section--visual .inner {
+  padding: 160px 0;
+  display: flex;
+}
+.section--visual .summary {
+  /* flex-grow: 1; 
+  flex-basis: 0; */
+  /* flex: grow | shrink | basis; */
+  /* flex: 0 1 1; 기본값*/
+  flex: 1;
+  margin-right: 90px;
+}
+.section--visual .summary__title {
+  color: #fff;
+  font-size: 54px;
+  text-shadow: 0 1px 1px rgba(0,0,0,.25),
+              0 1px 25px rgba(0,0,0,.75);
+}
+.section--visual .summary__description {
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.25),
+              0 1px 25px rgba(0,0,0,.75);
+}
+#sign-form {
+  width: 340px; /* 한번에 자식요소 제어 */
+  margin-top: 16px;
+}
+#sign-form li {
+  margin-bottom: 17px;
+}
+#sign-form li:last-child {
+  margin-bottom: 0;
+}
+#sign-form .input--text {
+  width: 100%; /* 부모요소로 가로값을 조절 */
+  height: 40px;
+}
+#sign-form .caption {
+  font-size: 12px;
+  margin-top: 5px;
+  color: rgba(255,255,255,.6);
+  line-height: 1.5;
+  text-align: center;
+}
+#sign-form [type="submit"] {
+  width: 100%;
+  height: 62px;
+  padding: 0 25px;
+  font-size: 20px;
+  justify-content: center;
+}
